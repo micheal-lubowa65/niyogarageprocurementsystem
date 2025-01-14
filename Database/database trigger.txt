@@ -1,0 +1,17 @@
+trigger changes value of pruchase_order only when the request is approved.
+
+
+DELIMITER $$
+
+CREATE TRIGGER update_purchase_order
+BEFORE UPDATE ON procurement_requests
+FOR EACH ROW
+BEGIN
+    -- Check if the req_status changes from 'pending' to 'approved'
+    IF OLD.req_status = 'pending' AND NEW.req_status = 'approved' THEN
+        -- Set the purchase_order column to a desired value, e.g., a unique value or increment
+        SET NEW.purchase_order = (SELECT COALESCE(MAX(purchase_order), 0) + 1 FROM procurement_requests);
+    END IF;
+END$$
+
+DELIMITER ;
