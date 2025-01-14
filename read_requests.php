@@ -25,7 +25,11 @@ if (mysqli_num_rows($result) > 0) {
     // Including Bootstrap CSS from local folder
     echo '<link href="css/bootstrap.min.css" rel="stylesheet">';
 
+    // Add "Back" button aligned to the right
     echo '<div class="container m-4">';
+    echo '<a href="podash.php" class="btn btn-primary mb-3 float-end">Back</a>';  // Link to podash.php
+
+
     echo '<h2>Niyo Garage Procurement Requests</h2>';
     echo '<table class="table table-bordered table-striped table-hover">';
     echo '<thead class="thead-dark">';
