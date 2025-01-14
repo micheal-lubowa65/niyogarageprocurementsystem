@@ -13,6 +13,8 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
+
+
 // SQL query to retrieve data, including Delivery Due Date
 $sql = "SELECT id, first_name, second_name, contact, email, item_name, item_description, quantity, justification, delivery_due_date, request_date, req_status
         FROM procurement_requests";
@@ -84,7 +86,12 @@ if (mysqli_num_rows($result) > 0) {
             echo '<li><a class="dropdown-item disabled" href="#">Reject</a></li>';
         }
         
-        
+        if ($row['req_status'] === 'pending') {
+        echo '<li><a class="dropdown-item" href="edit_request.php?id=' . $row['id'] . '">Edit</a></li>';
+        } else {
+            echo '<li><a class="dropdown-item disabled" href="#">Edit</a></li>';
+      
+        }
         // Delete button
         echo '<li><a class="dropdown-item" href="delete_request.php?id=' . $row['id'] . '">Delete</a></li>';
 

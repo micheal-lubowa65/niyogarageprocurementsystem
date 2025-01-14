@@ -30,7 +30,7 @@ if (isset($_GET['id'])) {
             </script>";
         } else {
             echo "<script>
-                alert('Error updating record: " . mysqli_error($conn) . "');
+                alert('Error rejecting record: " . mysqli_error($conn) . "');
                 window.location.href = 'read_requests.php';
             </script>";
         }
