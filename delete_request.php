@@ -27,7 +27,7 @@ if (isset($_GET['id'])) {
         if (mysqli_stmt_execute($stmt)) {
             echo "<script>
                 alert('Record deleted successfully!');
-                window.location.href = 'read_request.php';
+                window.location.href = 'read_requests.php';
             </script>";
         } else {
             echo "<script>

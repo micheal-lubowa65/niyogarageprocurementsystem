@@ -45,7 +45,7 @@ if (mysqli_num_rows($result) > 0) {
             <th>Status</th>
             <th>User Request Date</th>
             <th>Delivery Due Date</th>
-            <th colspan="2" style="text-align: center;">Actions</th>
+            <th>Actions</th>
           </tr>';
     echo '</thead>';
     echo '<tbody>';
@@ -65,18 +65,31 @@ if (mysqli_num_rows($result) > 0) {
         echo '<td>' . htmlspecialchars($row['request_date']) . '</td>';
         echo '<td>' . htmlspecialchars($row['delivery_due_date']) . '</td>';
 
-        // Conditional approval button
+        // Dropdown for actions
         echo '<td>';
-        if ($row['req_status'] === 'approved') {
-            echo '<button class="btn btn-outline-success" disabled>Approved</button>';
+        echo '<div class="btn-group">';
+        echo '<button type="button" class="btn btn-light btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Actions</button>';
+        echo '<ul class="dropdown-menu">';
+        
+        // Conditional approve button
+        if ($row['req_status'] === 'pending') {
+            echo '<li><a class="dropdown-item"  href="approve_request.php?id=' . $row['id'] .  '">Approve</a></li>';
         } else {
-            echo '<a href="approve_request.php?id=' . $row['id'] . '" class="btn btn-outline-success">Approve</a>';
+            echo '<li><a class="dropdown-item disabled" href="#">Approve</a></li>';
         }
-        echo '</td>';
-
+        
+        if ($row['req_status'] === 'pending') {
+        echo '<li><a class="dropdown-item" href="reject_request.php?id=' . $row['id'] . '">Reject</a></li>';
+        }else {
+            echo '<li><a class="dropdown-item disabled" href="#">Reject</a></li>';
+        }
+        
+        
         // Delete button
-        echo '<td>';
-        echo '<a href="delete_request.php?id=' . $row['id'] . '" class="btn btn-outline-danger">Delete</a>';
+        echo '<li><a class="dropdown-item" href="delete_request.php?id=' . $row['id'] . '">Delete</a></li>';
+
+        echo '</ul>';
+        echo '</div>';
         echo '</td>';
 
         echo '</tr>';
@@ -92,3 +105,7 @@ if (mysqli_num_rows($result) > 0) {
 // Close the database connection
 mysqli_close($conn);
 ?>
+
+<!-- Include Bootstrap JS and Popper.js -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>

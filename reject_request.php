@@ -17,7 +17,7 @@ if (isset($_GET['id'])) {
     $id = intval($_GET['id']);
 
     // SQL query to update the record
-    $sql = "UPDATE procurement_requests SET req_status = 'approved' WHERE id = ?";
+    $sql = "UPDATE procurement_requests SET req_status = 'rejected' WHERE id = ?";
 
     // Prepare and execute the update query
     if ($stmt = mysqli_prepare($conn, $sql)) {
@@ -25,12 +25,12 @@ if (isset($_GET['id'])) {
         
         if (mysqli_stmt_execute($stmt)) {
             echo "<script>
-                alert('Procurement Request successfully Approved');
+                alert('Procurement Request successfully Rejected!');
                 window.location.href = 'read_requests.php';
             </script>";
         } else {
             echo "<script>
-                alert('Error Approving record: " . mysqli_error($conn) . "');
+                alert('Error updating record: " . mysqli_error($conn) . "');
                 window.location.href = 'read_requests.php';
             </script>";
         }
