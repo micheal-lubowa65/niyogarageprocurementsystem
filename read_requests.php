@@ -92,6 +92,8 @@ if (mysqli_num_rows($result) > 0) {
             echo '<li><a class="dropdown-item disabled" href="#">Edit</a></li>';
       
         }
+
+     
         // Delete button
         echo '<li><a class="dropdown-item" href="delete_request.php?id=' . $row['id'] . '">Delete</a></li>';
 

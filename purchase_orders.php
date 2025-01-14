@@ -29,19 +29,15 @@ if (mysqli_num_rows($result) > 0) {
     echo '<div class="container m-4">';
     echo '<a href="podash.php" class="btn btn-primary mb-3 float-end">Back</a>';  // Link to podash.php
 
-
     echo '<h2>Niyo Garage Purchase Orders</h2>';
     echo '<table class="table table-bordered table-striped table-hover">';
     echo '<thead class="thead-dark">';
     echo '<tr>
-       
             <th>Item Name</th>
             <th>Item Description</th>
             <th>Quantity</th>
             <th>Purchase Order No.</th>
-            
-           
-            <th colspan="2" style="text-align: center;">Actions</th>
+            <th>Action</th>
           </tr>';
     echo '</thead>';
     echo '<tbody>';
@@ -49,14 +45,14 @@ if (mysqli_num_rows($result) > 0) {
     // Loop through each record and display it in the table
     while ($row = mysqli_fetch_assoc($result)) {
         echo '<tr>';
-       
         echo '<td>' . htmlspecialchars($row['item_name']) . '</td>';
         echo '<td>' . htmlspecialchars($row['item_description']) . '</td>';
         echo '<td>' . htmlspecialchars($row['quantity']) . '</td>';
         echo '<td>' . htmlspecialchars($row['purchase_order']) . '</td>';
-        
 
-       
+        // Add the "Generate PDF" link
+        echo '<td><a class="btn btn-success btn-sm" href="generate_pdf.php?id=' . htmlspecialchars($row['id']) . '">Generate Purchase Order</a></td>';
+        echo '</tr>';
     }
 
     echo '</tbody>';
