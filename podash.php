@@ -1,9 +1,9 @@
 <?php
-// Start the HTML structure
+
 echo '<!DOCTYPE html>';
 echo '<html lang="en">';
 
-// Include the head section with Bootstrap for styling
+
 echo '<head>';
 echo '<meta charset="UTF-8">';
 echo '<meta name="viewport" content="width=device-width, initial-scale=1.0">';
@@ -12,7 +12,7 @@ echo '<title>Landing Page</title>';
 echo '<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">';
 echo '<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">';
 
-// Custom CSS for icon colors and removing underlines from links
+// CSS for icon colors 
 echo '<style>';
 echo 'body {';
 echo '  background-color: white;';
@@ -35,7 +35,7 @@ echo '</head>';
 
 echo '<body>';
 
-// Container to center the panes in the middle
+
 echo '<div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">';
 echo '<div class="row text-center w-100">';
 
@@ -48,7 +48,7 @@ echo '</div>';
 echo '<div class="col-md-4 mb-4">';
 echo '<div class="card p-5" style="height: 250px; background-color: #4CAF50;">';
 echo '<a href="read_requests.php" class="text-reset"><h2 class="text-white">Procurement Requests</h2></a>';
-echo '<i class="fas fa-cogs fa-3x"></i>';  // Add an icon
+echo '<i class="fas fa-cogs fa-3x"></i>';  
 echo '</div>';
 echo '</div>';
 
@@ -56,7 +56,7 @@ echo '</div>';
 echo '<div class="col-md-4 mb-4">';
 echo '<div class="card p-5" style="height: 250px; background-color: #2196F3;">';
 echo '<a href="purchase_orders.php" class="text-reset"><h2 class="text-white">Purchase Orders</h2></a>';
-echo '<i class="fas fa-cart-plus fa-3x"></i>';  // Add an icon
+echo '<i class="fas fa-cart-plus fa-3x"></i>';  
 echo '</div>';
 echo '</div>';
 
@@ -64,14 +64,14 @@ echo '</div>';
 echo '<div class="col-md-4 mb-4">';
 echo '<div class="card p-5" style="height: 250px; background-color: #F44336;">';
 echo '<a href="reports.php" class="text-reset"><h2 class="text-white">Reports</h2></a>';
-echo '<i class="fas fa-chart-line fa-3x"></i>';  // Add an icon
+echo '<i class="fas fa-chart-line fa-3x"></i>';  
 echo '</div>';
 echo '</div>';
 
 echo '</div>';
 echo '</div>';
 
-// Include Bootstrap JS for functionality
+// Inclusion of  Bootstrap JS for functionality
 echo '<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>';
 echo '</body>';
 echo '</html>';

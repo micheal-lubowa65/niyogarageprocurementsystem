@@ -15,7 +15,7 @@ if (!$conn) {
 
 // SQL query to retrieve data, including Delivery Due Date
 $sql = "SELECT id, first_name, second_name, contact, email, item_name, item_description, quantity, justification, delivery_due_date, request_date, req_status, purchase_order
-        FROM procurement_requests WHERE req_status = 'approved'";
+        FROM procurement_requests WHERE req_status = 'approved' ";
 
 // Execute the query
 $result = mysqli_query($conn, $sql);
@@ -42,7 +42,7 @@ if (mysqli_num_rows($result) > 0) {
     echo '</thead>';
     echo '<tbody>';
 
-    // Loop through each record and display it in the table
+    // Looping through each record and display it in the table
     while ($row = mysqli_fetch_assoc($result)) {
         echo '<tr>';
         echo '<td>' . htmlspecialchars($row['item_name']) . '</td>';
@@ -50,7 +50,7 @@ if (mysqli_num_rows($result) > 0) {
         echo '<td>' . htmlspecialchars($row['quantity']) . '</td>';
         echo '<td>' . htmlspecialchars($row['purchase_order']) . '</td>';
 
-        // Add the "Generate PDF" link
+      
         echo '<td><a class="btn btn-success btn-sm" href="generate_pdf.php?id=' . htmlspecialchars($row['id']) . '">Generate Purchase Order</a></td>';
         echo '</tr>';
     }

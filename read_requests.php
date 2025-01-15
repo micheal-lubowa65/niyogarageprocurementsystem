@@ -5,7 +5,7 @@ $dbname = 'procurement_db';
 $username = 'root';
 $password = '';
 
-// Create a connection to the database
+// database connection
 $conn = mysqli_connect($host, $username, $password, $dbname);
 
 // Check for any connection errors
@@ -27,9 +27,9 @@ if (mysqli_num_rows($result) > 0) {
     // Including Bootstrap CSS from local folder
     echo '<link href="css/bootstrap.min.css" rel="stylesheet">';
 
-    // Add "Back" button aligned to the right
+    //  "Back" button aligned to the right
     echo '<div class="container m-4">';
-    echo '<a href="podash.php" class="btn btn-primary mb-3 float-end">Back</a>';  // Link to podash.php
+    echo '<a href="podash.php" class="btn btn-primary mb-3 float-end">Back</a>';  // Links to podash.php (procurement officer dashbord)
 
 
     echo '<h2>Niyo Garage Procurement Requests</h2>';
@@ -115,6 +115,6 @@ if (mysqli_num_rows($result) > 0) {
 mysqli_close($conn);
 ?>
 
-<!-- Include Bootstrap JS and Popper.js -->
+<!-- Inclusion for Bootstrap JS and Popper.js -->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>

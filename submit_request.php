@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $stmt = mysqli_prepare($conn, $sql);
     if ($stmt) {
-        // Correctly binding the parameters with proper format string
+        //  binding the parameters with proper format string
         mysqli_stmt_bind_param($stmt, "ssssssiss", $firstName, $secondName, $contact, $email, $itemName, $itemDescription, $quantity, $justification, $deliveryDueDate);
         
         if (mysqli_stmt_execute($stmt)) {

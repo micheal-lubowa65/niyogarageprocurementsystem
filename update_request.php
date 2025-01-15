@@ -25,14 +25,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $justification = htmlspecialchars($_POST['justification']);
     $deliveryDueDate = htmlspecialchars($_POST['deliveryDueDate']); // New field for Delivery Due Date
 
-    // SQL query with placeholders
+    // SQL query 
     $sql = "UPDATE procurement_requests
             SET first_name = ?, second_name = ?, contact = ?, email = ?, 
                 item_name = ?, item_description = ?, quantity = ?, justification = ?, 
                 delivery_due_date = ?
             WHERE id = ?";
 
-    // Prepare the statement
+    // Prepare the statement for execution
     $stmt = mysqli_prepare($conn, $sql);
 
     if ($stmt) {

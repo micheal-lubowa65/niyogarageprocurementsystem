@@ -1,0 +1,15 @@
+User Form
+request_form.php - > submit_request.php
+
+Procurement officer Dashboard
+podash.php - > read_requests.php
+			-> edit_request.php
+				->update_request.php
+			-> approve_request.php
+			-> reject_request.php
+			-> delete_request.php
+
+
+	   - > purchase_orders.php
+			->generate_purOrder.php
+	   - > reports.php

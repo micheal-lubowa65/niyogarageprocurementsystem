@@ -1,5 +1,5 @@
 <?php 
-// Define the connection variables
+// database connection details
 $host = 'localhost';
 $username = 'root';
 $password = '';
@@ -12,7 +12,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// Get the 'id' from the URL
+// retriving 'id' from the URL
 if (isset($_GET['id'])) {
     $id = intval($_GET['id']);
 

@@ -29,10 +29,10 @@ $result = mysqli_query($conn, $sql);
 
 // Check if the record exists
 if (mysqli_num_rows($result) > 0) {
-    // Fetch the record
+    // Fetching the record
     $row = mysqli_fetch_assoc($result);
     
-    // Start the HTML document
+    
     echo '<!DOCTYPE html>
     <html lang="en">
     <head>
